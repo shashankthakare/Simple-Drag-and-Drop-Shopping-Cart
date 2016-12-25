@@ -1,0 +1,18 @@
+.prod{
+	background: url(sprites.png) no-repeat;
+}
+
+.prod
+{
+    background-image:sprites.png;
+	background-position: -282px -159px ;
+	width: 120px;
+	height: 120px;
+}
+.cartcontent
+{
+    
+     fitColumns:true; 
+     width:300px;
+     height:auto;}
+

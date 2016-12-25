@@ -1,0 +1,211 @@
+<html>
+<head>
+    <title>Shopping cart</title>
+    <link href="style.css" type="text/css" rel="Stylesheet" />
+    <link href="sprites.css" type="text/css" rel="Stylesheet" />
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript">
+        var total_items = 0;
+        var total_price = 0;
+        $(document).ready(function () {
+
+            $(".item").draggable({
+                revert: true
+            });
+            $("#cart_items").draggable({
+                axis: "x"
+            });
+
+            $("#cart_items").droppable({
+                accept: ".item",
+                activeClass: "drop-active",
+                hoverClass: "drop-hover",
+                drop: function (event, ui) {
+                    var item = ui.draggable.html();
+                    var itemid = ui.draggable.attr("id");
+                    var html = '<div class="item icart">';
+                    html = html + '<div class="divrm">';
+                    html = html + '<a onclick="remove(this)" class="remove ' + itemid + '">&times;</a>';
+                    html = html + '<div/>' + item + '</div>';
+                    $("#cart_items").append(html);
+
+                    // update total items
+                    total_items++;
+                    $("#citem").html(total_items);
+
+                    // update total price
+                    var price = parseInt(ui.draggable.find(".price").html().replace("Rs ", ""));
+                    total_price = total_price + price;
+                    $("#cprice").html("Rs " + total_price);
+
+                    // expand cart items
+
+                }
+            });
+
+
+           
+           
+        });
+        function remove(el) {
+            $(el).hide();
+            $(el).parent().parent().effect("highlight", { color: "gray" }, 1000);
+            $(el).parent().parent().fadeOut('1000');
+            setTimeout(function () {
+                $(el).parent().parent().remove();
+                // collapse cart items
+                if (total_items > 3) {
+                    $("#cart_items").animate({ width: "-=120" }, 'slow');
+                }
+            }, 1100);
+
+            // update total item
+            total_items--;
+            $("#citem").html(total_items);
+
+            // update totl price
+            var price = parseInt($(el).parent().parent().find(".price").html().replace("Rs ", ""));
+            total_price = total_price - price;
+            $("#cprice").html("Rs" + total_price);
+        }
+    </script>
+</head>
+<body>
+    <div class="adbanner">
+    </div>
+    <div class="top_strip">
+        <div class="strip_elements">
+            Home</div>
+        <div class="strip_elements">
+            Products</div>
+        <div class="strip_elements">
+            Special Deals</div>
+        <div class="strip_elements">
+            Blog</div>
+        <div class="strip_elements">
+            Shopping Cart</div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="sub_icon">
+        <img src="category.jpg">
+    </div>
+    <div class="sub_desc">
+        <b>Smartphone Category<b>: smartphone, or smart phone, is a mobile phone built on
+        a mobile operating system, with more advanced computing capability and connectivity
+        than a feature phone.The first smartphones combined the functions of a personal
+        digital assistant (PDA) with a mobile phone.Later models added the functionality
+        of portable media players, low-end compact digital cameras, pocket video cameras,
+        and GPS navigation units to form one multi-use device.
+    </div>
+    <div class="clear">
+    </div>
+    <!starting of main cart frame>
+    <div class="main">
+        <div class="item_container">
+            <div class="item" id="i1">
+                <img src="img/1.jpg" />
+                <label class="price">
+                    25000</label>
+            </div>
+            <div class="item" id="i2">
+                <img src="img/2.jpg" />
+                <label class="price">
+                    15000</label>
+            </div>
+            <div class="item" id="i3">
+                <img src="img/3.jpg" />
+                <label class="price">
+                    14500</label>
+            </div>
+            <div class="item" id="i4">
+                <img src="img/4.jpg" />
+                <label class="price">
+                    23900</label>
+            </div>
+            <div class="item" id="i5">
+                <img src="img/5.jpg" />
+                <label class="price">
+                    30000</label>
+            </div>
+            <div class="item" id="i6">
+                <img src="img/6.jpg" />
+                <label class="price">
+                    17000</label>
+            </div>
+            <div class="item" id="i7">
+                <img src="img/7.jpg" />
+                <label class="price">
+                    11600</label>
+            </div>
+            <div class="item" id="i8">
+                <img src="img/8.jpg" />
+                <label class="price">
+                    33500</label>
+            </div>
+            <div class="item" id="i9">
+                <img src="img/9.jpg" />
+                <label class="price">
+                    19700</label>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="cart_container">
+            <div id="cart_items" class="back">
+            </div>
+            <div id="cart_toolbar">
+            </div>
+        <div id="navigate">
+        </div>
+        <div id="nav_right">
+            <span class="sptext">
+                <label>
+                    ->Items
+                </label>
+                <label class="count" id="citem">
+                    0</label>
+            </span><span class="sptext">
+                <label>
+                    Price
+                </label>
+                <label class="count" id="cprice">
+                    Rs 0</label>
+            </span>
+        </div>
+        <div class="clear">
+        </div>
+        </div>
+    </div>
+    <!end of main>
+    <div class="add">
+        <div class="sub_icon">
+            <img href="ads.google.com" src="adbutton.jpg" />
+        </div>
+        <div class="sub_desc">
+            <b>Satisfaction Guarantee<b> Guarantee On Smartphone Showing Satisfaction Guarantee
+                Or Certificate. This royalty free image, "Guarantee On Smartphone Showing Satisfaction
+                Guarantee", can be used in business, personal, charitable and educational design
+                projects: it may be used in web design, printed media, advertising, book covers
+                and pages, music artwork, software applications and much more. For more information
+                please read our<a href="dummylink.com"> terms and conditions.</a>
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="top_strip">
+        <div class="bottom_elements">
+            &copy; Copyight 2007</div>
+        <div class="bottom_elements">
+            Terms and conditions</div>
+        <div class="bottom_elements">
+            Privacy Poilcy</div>
+        <div class="bottom_elements">
+            About</div>
+        <div class="bottom_elements">
+            Contacts</div>
+    </div>
+</body>
+</html>

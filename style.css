@@ -1,0 +1,154 @@
+.body
+{
+    postion: absolute;
+    padding: 0;
+    margin: 0;
+    background-color:gray;
+}
+
+.adbanner
+{
+    float: left;
+    width: 900px;
+    height: 110px;
+    background-image:url("adbanner.jpg");
+   
+}
+.top_strip
+{
+    float: left;
+    width: 900px;
+    height: 50px;
+  
+}
+.strip_elements
+{
+    float: left;
+    width: 174px;
+    height: 30px;
+    border-style: solid;
+}
+.clear
+{
+    clear: both;
+}
+.sub_icon
+{
+    float: left;
+    width: 200px;
+    height: 120px;
+   
+}
+.sub_desc
+{
+    float: right;
+     width:650px;
+    height: 120px;
+    position:absolute;
+    margin-left:250px;
+   
+}
+.main
+{
+    
+        float:left;
+        width:950px;
+          height:510px;
+}
+    
+.cart_container
+{
+    float: left;
+    width: 200px;
+    height: 400px;
+    margin-top:-500px;
+    
+}
+.checkout
+{
+    float:left;
+    margin-top:470px;
+    margin-left:60px;}
+
+.item_container
+{
+    
+    float: right;
+    width: 700px;
+    height: 500px;
+    margin-left:200px;
+   
+   
+}
+
+.product
+{
+      
+        float:left;
+        width:120px;
+          height:120px;
+    margin-left:70px;
+    margin-top:70px;
+    background-color:olive;
+    
+   
+}
+.product:hover
+{
+    
+    background-color:Black;
+    }
+    .prod:hover
+{
+    
+    background-color:Black;
+    }
+.add
+{
+    float:left;
+    width:900px;
+    height:120px;
+    }
+.bottom_elements
+{
+        float: left;
+    width: 180px;
+    height: 30px;
+    background-color:Gray;
+    }
+        .item
+        {
+            
+            float: left;
+            padding: 5px;
+            margin: 5px;
+            cursor: move;
+            
+            
+            z-index: 5;
+        }
+        
+        
+         
+        cart_toolbar
+        {
+            border: 4px solid black;
+            height: 350px;
+            
+            width: 180px;
+            margin-bottom:200px;
+            background-color:green;
+            position: absolute;
+            float:left;
+            overflow:scroll;
+           
+        }
+        #cart_items
+        {
+            height: 450px;
+            width: 200px;
+            background-color:Gray;
+            overflow:scroll;
+            cursor: e-resize;
+            border-width: 0 2px;
+        }
